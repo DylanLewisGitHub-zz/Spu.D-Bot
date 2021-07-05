@@ -20,8 +20,12 @@ async def on_member_remove(member):
   print('{member} has left a server')
 
 @client.command()
-async def latency(ctx):
+async def ping(ctx):
   await ctx.send(f"Latency is {round(client.latency * 1000)}ms")
+
+@client.command()
+async def clear(ctx, amount=5):
+  await ctx.channel.purge(limit=amount+1)
 
 keep_alive()
 client.run(token)
