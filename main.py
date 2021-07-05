@@ -1,7 +1,7 @@
 import discord
 import os
 
-from dicord.ext import commands
+from discord.ext import commands
 from keep_alive import keep_alive
 
 client = commands.Bot(command_prefix = ".d")
