@@ -1,6 +1,5 @@
 import discord
 import os
-import js2py
 
 from keep_alive import keep_alive
 
