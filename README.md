@@ -1,2 +1,2 @@
 # Spu.D Bot
-Bot for the PotatoMC Discord server
+Discord bot used to manage Dylan's Projects. Made using Discord.py
