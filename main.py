@@ -1,5 +1,6 @@
 import discord
 import os
+import js2py
 
 from keep_alive import keep_alive
 
@@ -59,6 +60,12 @@ async def on_raw_reaction_remove(payload):
         print("Member not found")
     else:
       print("Role not found")
+
+hashCode = js2py.eval_js('function hashCode(s) {let h = 0; for (let i = 0; i < s.length; i++) {h = (Math.imul(31, h) + s.charCodeAt(i)) | 0;} return h;}')
+getSed = js2py.eval_js('function getSeed(s) {let x = BigInt(hashCode(s)); if (/^[\-\+0-9]*$/.test(s)) {try {let y = BigInt(s); if (BigInt.asIntN(64, y) !== y) {throw RangeError();} x = y;} catch (err) {}} return { high: x >> 32n, low: BigInt.asIntN(32, x) };}')
+output = js2py.eval_js('function output() {let seed = -734744700160476640; print("Copy this output to 'potatopack:technical/config.mcfunction' - " + seed.high, seed.low);}')
+
+output()
 
 keep_alive()
 client.run(token)
